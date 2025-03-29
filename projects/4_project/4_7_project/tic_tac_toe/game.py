@@ -1,9 +1,13 @@
 # tic_tac_toe game
 
 from gameparts import Board
+
 # Из файла exceptions.py, который лежит в пакете gameparts,
 # импортируется класс FieldIndexError.
 from gameparts import FieldIndexError
+
+# Добавился ещё один импорт - исключение CellOccupiedError.
+from gameparts import CellOccupiedError
 
 
 # Всё, что ниже этой инструкции, не будет импортироваться,
@@ -47,6 +51,12 @@ def main():
                 if column < 0 or column >= game.field_size:
                     # ...выбрасывается собственное исключение FieldIndexError.
                     raise FieldIndexError
+
+                # Проверка, занята ли ячейка.
+                if game.board[row][column] != ' ':
+                    # Вот тут выбрасывается новое исключение.
+                    raise CellOccupiedError
+
             # Если возникает исключение FieldIndexError...
             except FieldIndexError:
                 # ...выводятся сообщения...
@@ -56,6 +66,10 @@ def main():
                 print('Введите значение для строки и столбца заново.')
                 # ...и цикл начинает свою работу сначала,
                 # предоставляя пользователю ещё одну попытку ввести данные.
+                continue
+            except CellOccupiedError:
+                print('Ячека занята.')
+                print('Введите другие координаты.')
                 continue
             except ValueError:
                 print('Буквы вводить нельзя. Только числа.')
