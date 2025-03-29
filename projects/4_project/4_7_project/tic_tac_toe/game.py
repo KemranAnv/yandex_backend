@@ -10,19 +10,19 @@ from gameparts import FieldIndexError
 from gameparts import CellOccupiedError
 
 
-# def save_result(result):
-#     """Сохраняет результат игры в файл result.txt"""
-#     with open('results.txt', 'a', encoding='utf-8') as file:
-#         file.write(result + '\n')  # Добавляем новую строку после записи
-#         file.close()
-
 def save_result(result):
-    # Открыть файл results.txt в режиме "добавление".
-    file = open('results.txt', 'a', encoding='utf-8')
+    """Сохраняет результат игры в файл result.txt"""
+    with open('results.txt', 'a', encoding='utf-8') as file:
+        file.write(result + '\n')  # Добавляем новую строку после записи
 
-    # Записать в файл содержимое переменной result.
-    file.write(result + '\n')
-    file.close()
+
+# def save_result(result):
+#     # Открыть файл results.txt в режиме "добавление".
+#     file = open('results.txt', 'a', encoding='utf-8')
+
+#     # Записать в файл содержимое переменной result.
+#     file.write(result + '\n')
+#     file.close()
 
 
 # Всё, что ниже этой инструкции, не будет импортироваться,
