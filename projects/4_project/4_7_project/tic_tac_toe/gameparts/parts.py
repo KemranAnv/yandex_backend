@@ -30,7 +30,7 @@ class Board:
             # проход по всем строчкам данного столбца.
             for j in range(self.field_size):
                 # Если находит свободную ячейке ....
-                if self.board == ' ':
+                if self.board[i][j] == ' ':
                     # ... игра продолжается
                     return False
 
